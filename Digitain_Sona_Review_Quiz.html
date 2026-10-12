@@ -1,376 +1,311 @@
 <!DOCTYPE html>
 <html lang="hy">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Digitain պայմանագիր — Սոնայի հարցաշար</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digitain պայմանագիր — նոր հարցաշար Սոնայի համար</title>
 <style>
-  :root{
-    --bg:#f6f7fb;
-    --card:#ffffff;
-    --text:#1d2433;
-    --muted:#6b7280;
-    --line:#e5e7eb;
-    --accent:#2f5bea;
-    --accent-soft:#eef3ff;
-    --ok:#15803d;
-    --warn:#b45309;
-  }
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    font-family: Arial, "Noto Sans Armenian", sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.55;
-  }
-  .wrap{
-    max-width:920px;
-    margin:0 auto;
-    padding:28px 18px 60px;
-  }
-  .hero{
-    background:linear-gradient(135deg,#172554,#2f5bea);
-    color:#fff;
-    border-radius:20px;
-    padding:28px;
-    box-shadow:0 12px 34px rgba(37,55,110,.18);
-  }
-  .hero h1{
-    margin:0 0 10px;
-    font-size:28px;
-    line-height:1.25;
-  }
-  .hero p{margin:0;opacity:.92}
-  .progress-wrap{
-    margin-top:18px;
-    background:rgba(255,255,255,.22);
-    height:8px;
-    border-radius:999px;
-    overflow:hidden;
-  }
-  .progress{
-    width:0%;
-    height:100%;
-    background:#fff;
-    transition:width .2s ease;
-  }
-  .progress-text{
-    margin-top:8px;
-    font-size:13px;
-    opacity:.9;
-  }
-  .card{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:18px;
-    padding:22px;
-    margin-top:18px;
-    box-shadow:0 8px 26px rgba(30,41,59,.05);
-  }
-  .qnum{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    width:30px;height:30px;
-    border-radius:50%;
-    background:var(--accent-soft);
-    color:var(--accent);
-    font-weight:700;
-    margin-right:8px;
-  }
-  .qtitle{
-    font-weight:700;
-    font-size:18px;
-    margin-bottom:8px;
-  }
-  .desc{
-    color:#374151;
-    margin:8px 0 14px;
-  }
-  .options{
-    display:grid;
-    gap:10px;
-  }
-  label.option{
-    display:block;
-    border:1px solid var(--line);
-    border-radius:12px;
-    padding:12px 14px;
-    cursor:pointer;
-    transition:.15s;
-    background:#fff;
-  }
-  label.option:hover{border-color:#b9c5ff;background:#fafbff}
-  label.option input{margin-right:8px}
-  label.option:has(input:checked){
-    border-color:var(--accent);
-    background:var(--accent-soft);
-  }
-  textarea{
-    width:100%;
-    min-height:76px;
-    margin-top:12px;
-    border:1px solid var(--line);
-    border-radius:12px;
-    padding:12px;
-    resize:vertical;
-    font:inherit;
-  }
-  .footer{
-    position:sticky;
-    bottom:10px;
-    margin-top:22px;
-    background:rgba(255,255,255,.95);
-    backdrop-filter:blur(8px);
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:12px;
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    box-shadow:0 10px 28px rgba(15,23,42,.12);
-  }
-  button{
-    border:none;
-    border-radius:10px;
-    padding:11px 15px;
-    font-weight:700;
-    cursor:pointer;
-    font-size:14px;
-  }
-  .primary{background:var(--accent);color:#fff}
-  .secondary{background:#eef2f7;color:#1f2937}
-  .success{background:#16a34a;color:#fff}
-  .preview{
-    white-space:pre-wrap;
-    background:#0f172a;
-    color:#e5e7eb;
-    border-radius:14px;
-    padding:16px;
-    margin-top:14px;
-    display:none;
-    font-size:14px;
-  }
-  .note{
-    color:var(--muted);
-    font-size:13px;
-    margin-top:8px;
-  }
-  .status{
-    font-size:13px;
-    color:var(--ok);
-    margin-left:auto;
-    align-self:center;
-  }
-  @media (max-width:640px){
-    .hero h1{font-size:23px}
-    .card{padding:17px}
-    .footer{position:static}
-    button{width:100%}
-    .status{width:100%;margin-left:0}
-  }
-  @media print{
-    .footer,.progress-wrap,.progress-text{display:none!important}
-    body{background:#fff}
-    .hero{box-shadow:none}
-    .card{break-inside:avoid;box-shadow:none}
-  }
+:root{
+  --bg:#f5f7fb; --card:#fff; --text:#18212f; --muted:#667085; --line:#e4e7ec;
+  --blue:#3157d5; --blue2:#eef3ff; --green:#16794a; --amber:#a15c00; --red:#b42318;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:Arial,"Noto Sans Armenian",sans-serif; line-height:1.55;
+}
+.container{max-width:940px;margin:0 auto;padding:28px 18px 70px}
+.header{
+  background:linear-gradient(135deg,#18264e,#3157d5);
+  color:white;border-radius:20px;padding:28px;
+  box-shadow:0 12px 30px rgba(24,38,78,.18)
+}
+.header h1{margin:0 0 10px;font-size:28px;line-height:1.25}
+.header p{margin:0;opacity:.94}
+.badge{
+  display:inline-block;margin-top:14px;padding:6px 10px;border-radius:999px;
+  background:rgba(255,255,255,.16);font-size:13px
+}
+.progressbox{margin-top:18px}
+.progressbar{height:8px;background:rgba(255,255,255,.22);border-radius:999px;overflow:hidden}
+.progress{height:100%;width:0;background:white;transition:.2s}
+.progresstext{font-size:13px;margin-top:7px;opacity:.9}
+.intro{
+  background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:18px
+}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:22px;margin-top:18px;box-shadow:0 7px 24px rgba(16,24,40,.05)
+}
+.title{display:flex;gap:10px;align-items:flex-start;font-size:18px;font-weight:700}
+.num{
+  flex:0 0 auto;width:30px;height:30px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;background:var(--blue2);color:var(--blue)
+}
+.context{
+  margin:12px 0 14px;padding:12px 14px;border-left:4px solid #c7d2fe;
+  background:#f8faff;border-radius:8px;color:#344054
+}
+.simple{
+  margin:10px 0 14px;padding:12px 14px;background:#fff8e8;border:1px solid #fde4ad;
+  border-radius:10px;color:#6b4b00
+}
+.simple b{color:#5c3e00}
+.options{display:grid;gap:10px}
+.option{
+  display:block;border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+  cursor:pointer;background:#fff;transition:.15s
+}
+.option:hover{border-color:#b6c2f6;background:#fbfcff}
+.option:has(input:checked){border-color:var(--blue);background:var(--blue2)}
+.option input{margin-right:9px}
+textarea{
+  width:100%;min-height:72px;margin-top:12px;padding:11px 12px;
+  border:1px solid var(--line);border-radius:11px;font:inherit;resize:vertical
+}
+.conditional{display:none}
+.notice{
+  margin-top:12px;font-size:13px;color:var(--muted)
+}
+.warning{
+  margin-top:10px;padding:10px 12px;border-radius:10px;background:#fff4ed;color:#8a3b12;
+  border:1px solid #ffd6ae;font-size:14px
+}
+.preview{
+  display:none;white-space:pre-wrap;background:#101828;color:#f2f4f7;
+  padding:16px;border-radius:14px;margin-top:18px;font-size:14px
+}
+.actions{
+  position:sticky;bottom:10px;margin-top:22px;background:rgba(255,255,255,.96);
+  backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;padding:12px;
+  display:flex;flex-wrap:wrap;gap:10px;box-shadow:0 10px 28px rgba(16,24,40,.12)
+}
+button{
+  border:0;border-radius:10px;padding:11px 15px;font-weight:700;cursor:pointer;font-size:14px
+}
+.primary{background:var(--blue);color:#fff}
+.secondary{background:#eef2f6;color:#1d2939}
+.success{background:#198754;color:#fff}
+.status{margin-left:auto;align-self:center;font-size:13px;color:var(--green)}
+@media(max-width:650px){
+  .header h1{font-size:23px}
+  .card{padding:17px}
+  .actions{position:static}
+  button{width:100%}
+  .status{width:100%;margin-left:0}
+}
+@media print{
+  body{background:#fff}.actions,.progressbox{display:none!important}
+  .header{box-shadow:none}.card{box-shadow:none;break-inside:avoid}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <section class="hero">
-    <h1>Digitain պայմանագիր — որոշումների հարցաշար</h1>
-    <p>Սոնա ջան, Digitain-ից պայմանագիրը վերադարձել է նոր դիտարկումներով։ Ստորև միայն այն հարցերն են, որոնց վերաբերյալ մեզ անհրաժեշտ է Ձեր բիզնես դիրքորոշումը։ Իրավական ձևակերպումները մենք կկազմենք պատասխանների հիման վրա։</p>
-    <div class="progress-wrap"><div id="progress" class="progress"></div></div>
-    <div id="progressText" class="progress-text">Պատասխանված է 0 / 7 հարց</div>
+<div class="container">
+  <section class="header">
+    <h1>Digitain պայմանագիր — բիզնես որոշումների հարցաշար</h1>
+    <p>Սոնա ջան, պայմանագիրը կրկին վերադարձել է Digitain-ի դիտարկումներով։ Ստորև միայն այն հարցերն են, որոնց վերաբերյալ մեզ անհրաժեշտ է Ձեր բիզնես որոշումը։ Իրավական ձևակերպումները և պատասխանները Digitain-ին մենք կպատրաստենք Ձեր ընտրությունների հիման վրա։</p>
+    <span class="badge">Նորացված տարբերակ — պարզեցված հարցերով</span>
+    <div class="progressbox">
+      <div class="progressbar"><div class="progress" id="progress"></div></div>
+      <div class="progresstext" id="progressText">Պատասխանված է 0 / 7 հարց</div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <b>Ինչպես լրացնել.</b> յուրաքանչյուր հարցում ընտրեք Ձեզ ամենամոտ տարբերակը։ Եթե անհրաժեշտ է, կարող եք ներքևում գրել մեկնաբանություն։ Վերջում «Տեսնել ամփոփումը» կոճակով կստանաք բոլոր պատասխանները մեկ տեղում։
   </section>
 
   <form id="quiz">
 
     <section class="card" data-q="q1">
-      <div class="qtitle"><span class="qnum">1</span>Փոխարժեքի փոփոխություն</div>
-      <div class="desc">Մենք առաջարկել էինք 5% և ավելի արժեզրկման դեպքում վերահաշվարկել արտարժութային ծախսի մասը։ Digitain-ն առաջարկում է փոխարժեքային ռիսկը բաժանել կողմերի միջև 50/50։</div>
+      <div class="title"><span class="num">1</span><span>Փոխարժեքի փոփոխություն</span></div>
+      <div class="context">Մեր տարբերակով, եթե Հայտի հաստատումից մինչև վճարումը դրամը USD/EUR-ի նկատմամբ արժեզրկվում է 5% կամ ավելի, արտարժութային ծախսի մասը կարող է վերահաշվարկվել։ Digitain-ն առաջարկում է փոխարժեքային ռիսկը կողմերի միջև բաժանել 50/50։</div>
+      <div class="simple"><b>Պարզ ասած.</b> եթե փոխարժեքը մեզ համար վատանում է, ամբողջ տարբերությո՞ւնն ենք վերագրում գնին, թե՞ դրա մի մասը վերցնում ենք մեզ վրա։</div>
       <div class="options">
         <label class="option"><input type="radio" name="q1" value="A — Պահել մեր տարբերակը">A — Պահել մեր տարբերակը</label>
-        <label class="option"><input type="radio" name="q1" value="B — Ընդունել 50/50 մեխանիզմը">B — Ընդունել 50/50 մեխանիզմը</label>
-        <label class="option"><input type="radio" name="q1" value="C — Պատրաստ ենք այլ տոկոսի շուրջ բանակցել">C — Պատրաստ ենք այլ տոկոսի շուրջ բանակցել</label>
+        <label class="option"><input type="radio" name="q1" value="B — Ընդունել Digitain-ի 50/50 մեխանիզմը">B — Ընդունել Digitain-ի 50/50 մեխանիզմը</label>
+        <label class="option"><input type="radio" name="q1" value="C — Բանակցել այլ հարաբերակցություն">C — Բանակցել այլ հարաբերակցություն</label>
       </div>
       <textarea name="q1_comment" placeholder="Մեկնաբանություն՝ ցանկության դեպքում"></textarea>
     </section>
 
     <section class="card" data-q="q2">
-      <div class="qtitle"><span class="qnum">2</span>Վեճի դեպքում վճարման պահում</div>
-      <div class="desc">Ընդունելի՞ է, որ միայն կոնկրետ վիճարկվող գումարը ժամանակավորապես պահվի, իսկ չվիճարկվող մասը պարտադիր վճարվի պայմանագրային ժամկետում։</div>
+      <div class="title"><span class="num">2</span><span>Վեճի դեպքում ծառայության վճարում</span></div>
+      <div class="context">Մեր դիրքն այն է, որ բեռի վնասի կամ այլ պահանջի առկայությունը ինքնին չպետք է կանգնեցնի արդեն մատուցված փոխադրման վճարումը։ Digitain-ը ցանկանում է վիճելի գումարի վճարումը պահելու հնարավորություն։</div>
+      <div class="simple"><b>Պարզ ասած.</b> եթե 1,000,000 դրամանոց փոխադրումից վիճարկվում է 200,000 դրամը, կարո՞ղ են ժամանակավորապես պահել միայն այդ 200,000-ը, բայց մնացած 800,000-ը վճարել ժամկետում։</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q2" value="Այո">Այո</label>
-        <label class="option"><input type="radio" name="q2" value="Ոչ">Ոչ</label>
+        <label class="option"><input type="radio" name="q2" value="A — Այո, միայն կոնկրետ վիճարկվող մասը կարող է պահվել">A — Այո, միայն կոնկրետ վիճարկվող մասը կարող է պահվել</label>
+        <label class="option"><input type="radio" name="q2" value="B — Ոչ, փոխադրավարձը պետք է ամբողջությամբ վճարվի, իսկ վնասի վեճը լուծվի առանձին">B — Ոչ, փոխադրավարձը պետք է ամբողջությամբ վճարվի, իսկ վնասի վեճը լուծվի առանձին</label>
       </div>
       <textarea name="q2_comment" placeholder="Մեկնաբանություն՝ ցանկության դեպքում"></textarea>
     </section>
 
     <section class="card" data-q="q3">
-      <div class="qtitle"><span class="qnum">3</span>Վճարման ժամկետ</div>
-      <div class="desc">Digitain-ն առաջարկում է 10 աշխատանքային օր՝ հաշվարկային փաստաթղթի երկկողմանի հաստատումից հետո։ Մեր տարբերակով ժամկետը հաշվվում է բեռը Ստացողին հանձնելու պահից և կախված չէ հետագա հաստատումից։</div>
+      <div class="title"><span class="num">3</span><span>Ե՞րբ պետք է սկսվի վճարման 7/10-օրյա ժամկետը</span></div>
+      <div class="context">Digitain-ի տարբերակով 10 աշխատանքային օրը սկսվում է հաշվարկային փաստաթղթի երկկողմանի հաստատումից հետո։ Մեր տարբերակով վճարման ժամկետը սկսվում է բեռը Ստացողին հանձնելուց և կախված չէ Digitain-ի հետագա հաստատումից։</div>
+      <div class="simple"><b>Պարզ ասած.</b> ուզում ենք խուսափել իրավիճակից, երբ բեռը վաղուց հասցված է, բայց վճարման ժամկետը դեռ չի սկսվել, որովհետև մյուս կողմը փաստաթուղթը չի հաստատել։</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q3" value="A — Միայն մեր 7-օրյա տարբերակը">A — Միայն մեր 7-օրյա տարբերակը</label>
-        <label class="option"><input type="radio" name="q3" value="B — 10 օրը ընդունելի է, բայց ոչ երկկողմանի հաստատումից">B — 10 օրը ընդունելի է, բայց ժամկետը չպետք է կախված լինի Digitain-ի հաստատումից</label>
-        <label class="option"><input type="radio" name="q3" value="C — Ընդունելի է Digitain-ի առաջարկած տարբերակը">C — Ընդունելի է նաև Digitain-ի առաջարկած երկկողմանի հաստատման մեխանիզմը</label>
+        <label class="option"><input type="radio" name="q3" value="A — Պահել 7 օր՝ բեռը հանձնելու պահից">A — Պահել 7 օր՝ բեռը հանձնելու պահից</label>
+        <label class="option"><input type="radio" name="q3" value="B — Կարող ենք ընդունել 10 օր, բայց այն պետք է սկսվի բեռի հանձնումից կամ հաշվի ուղարկումից, ոչ թե Digitain-ի հաստատումից">B — Կարող ենք ընդունել 10 օր, բայց ոչ Digitain-ի հաստատումից</label>
+        <label class="option"><input type="radio" name="q3" value="C — Ընդունելի է Digitain-ի առաջարկը՝ 10 աշխատանքային օր երկկողմանի հաստատումից հետո">C — Ընդունելի է Digitain-ի առաջարկը՝ 10 աշխատանքային օր երկկողմանի հաստատումից հետո</label>
       </div>
       <textarea name="q3_comment" placeholder="Մեկնաբանություն՝ ցանկության դեպքում"></textarea>
     </section>
 
     <section class="card" data-q="q4">
-      <div class="qtitle"><span class="qnum">4</span>Տույժեր</div>
-      <div class="desc">Digitain-ը ցանկանում է ընդհանուր 0.13% օրական տույժ։ Մենք առաջարկել էինք առանձին 0.1% մեխանիզմներ՝ ուշ վճարման և պարտադիր առաքման ժամկետի խախտման համար։</div>
+      <div class="title"><span class="num">4</span><span>Տույժերի չափը և կիրառման ձևը</span></div>
+      <div class="context">Digitain-ի առաջարկած 0.13% տույժը տեքստով կիրառվում է երկու կողմերի նկատմամբ՝ պայմանագրային ժամկետ խախտելու դեպքում, առավելագույնը՝ Հայտի արժեքի 10%-ը։ Այսինքն՝ նույն մեխանիզմը կարող է կիրառվել նաև Digitain-ի նկատմամբ, օրինակ՝ վճարման ուշացման դեպքում։ Մեր տարբերակով տույժը 0.1% էր և կապված էր կոնկրետ խախտումների հետ՝ ուշ վճարում կամ կոնկրետ պարտադիր առաքման ժամկետի խախտում։</div>
+      <div class="simple"><b>Պարզ ասած.</b> ընտրությունը «միասնական 0.13% երկու կողմերի համար» և «ավելի նեղ 0.1% միայն կոնկրետ խախտումների համար» տարբերակների միջև է։</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q4" value="0.1% — Պահել մեր տարբերակը">0.1% — Պահել մեր տարբերակը</label>
-        <label class="option"><input type="radio" name="q4" value="0.13% — Ընդունելի է">0.13% — Ընդունելի է</label>
-        <label class="option"><input type="radio" name="q4" value="Այլ տարբերակ">Այլ տարբերակ</label>
+        <label class="option"><input type="radio" name="q4" value="A — Ընդունել 0.13% միասնական և հայելային մեխանիզմը երկու կողմերի համար">A — Ընդունել 0.13% միասնական և հայելային մեխանիզմը երկու կողմերի համար</label>
+        <label class="option"><input type="radio" name="q4" value="B — Պահել 0.1% միայն կոնկրետ խախտումների համար">B — Պահել 0.1% միայն կոնկրետ խախտումների համար</label>
+        <label class="option"><input type="radio" name="q4" value="C — Այլ տարբերակ">C — Այլ տարբերակ</label>
       </div>
-      <textarea name="q4_comment" placeholder="Եթե ընտրել եք «այլ տարբերակ», նշեք առաջարկը"></textarea>
+      <textarea name="q4_comment" placeholder="Եթե ընտրել եք «այլ տարբերակ», նշեք Ձեր առաջարկը"></textarea>
     </section>
 
     <section class="card" data-q="q5">
-      <div class="qtitle"><span class="qnum">5</span>Բեռի պարտադիր ապահովագրություն</div>
-      <div class="desc">Նախկինում նշել էիք, որ յուրաքանչյուր փոխադրման համար ապահովագրությունը պարտադիր չէ։ Digitain-ի նոր դիրքն այն է, որ պայմանագրի շրջանակում յուրաքանչյուր բեռ պետք է պարտադիր ապահովագրվի։</div>
+      <div class="title"><span class="num">5</span><span>Բեռի ապահովագրությունը պարտադի՞ր է յուրաքանչյուր փոխադրման համար</span></div>
+      <div class="context">Պայմանագրում այս հարցը հիմա միանշանակ չէ. մի կետում գրված է, որ Պատվիրատուն բեռը ապահովագրում է «իր հայեցողությամբ», իսկ ապահովագրության բաժնում գրված է, որ բեռը «պետք է ապահովագրվի բոլոր տեսակի ռիսկերից»։ Digitain-ի դիտարկումներից մեկում նույնպես պնդվում է պարտադիր ապահովագրություն։</div>
+      <div class="simple"><b>Պարզ ասած.</b> ուզում ենք վերջնական հասկանալ՝ ամեն բեռ պարտադի՞ր ենք ապահովագրում, թե՞ յուրաքանչյուր փոխադրման ժամանակ առանձին ենք որոշում։</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q5" value="A — Չենք ընդունում պարտադիր ապահովագրություն">A — Չենք ընդունում պարտադիր ապահովագրություն</label>
-        <label class="option"><input type="radio" name="q5" value="B — Ընդունելի է, եթե արժեքը առանձին կրում է Պատվիրատուն">B — Ընդունելի է, եթե ապահովագրության արժեքը առանձին ավելացվում է գնին / կրում է Պատվիրատուն</label>
-        <label class="option"><input type="radio" name="q5" value="C — Ընդունելի է մեր հաշվին">C — Պատրաստ ենք բոլոր փոխադրումները ապահովագրել մեր հաշվին</label>
+        <label class="option"><input type="radio" name="q5" value="A — Ապահովագրությունը պարտադիր չէ. որոշվում է յուրաքանչյուր փոխադրման համար առանձին">A — Ապահովագրությունը պարտադիր չէ. որոշվում է յուրաքանչյուր փոխադրման համար առանձին</label>
+        <label class="option"><input type="radio" name="q5" value="B — Կարող ենք ընդունել պարտադիր ապահովագրություն, եթե դրա արժեքը կրում է Պատվիրատուն / ավելացվում է փոխադրման գնին">B — Կարող ենք ընդունել պարտադիր ապահովագրություն, եթե դրա արժեքը կրում է Պատվիրատուն / ավելացվում է գնին</label>
+        <label class="option"><input type="radio" name="q5" value="C — Կարող ենք ընդունել պարտադիր ապահովագրություն նաև Smart Shippings-ի հաշվին">C — Կարող ենք ընդունել պարտադիր ապահովագրություն նաև Smart Shippings-ի հաշվին</label>
+        <label class="option"><input type="radio" name="q5" value="D — Այլ տարբերակ">D — Այլ տարբերակ</label>
       </div>
       <textarea name="q5_comment" placeholder="Մեկնաբանություն՝ ցանկության դեպքում"></textarea>
+      <div class="warning">Նշում. սա բեռի ապահովագրության մասին է, ոչ թե Smart Shippings-ի սեփական քաղաքացիական պատասխանատվության ապահովագրության։</div>
     </section>
 
-    <section class="card" data-q="q6">
-      <div class="qtitle"><span class="qnum">6</span>Չապահովագրված բեռի պատասխանատվություն</div>
-      <div class="desc">Հաստատե՞նք մեր դիրքը, որ Smart Shippings-ը չի ստանձնում ավտոմատ ամբողջ բեռի արժեքով անսահմանափակ պատասխանատվություն, և պատասխանատվությունը պետք է որոշվի կիրառելի CMR/այլ կոնվենցիայի ու օրենքի սահմաններում։</div>
+    <section class="card conditional" id="q6card" data-q="q6">
+      <div class="title"><span class="num">6</span><span>Եթե կոնկրետ բեռը ապահովագրված չէ՝ ինչ չափով ենք պատասխանատու</span></div>
+      <div class="context">Այս հարցը կարևոր է հատկապես այն դեպքում, եթե ապահովագրությունը պարտադիր չենք դարձնում։ Digitain-ի տեքստում կա մոտեցում, ըստ որի բեռի կորստի դեպքում կարող է պահանջվել ամբողջ կորած բեռի արժեքը։ Մեր դիրքն այն է, որ Smart Shippings-ը չպետք է ավտոմատ դառնա ամբողջ բեռի արժեքի երաշխավոր. պատասխանատվությունը պետք է որոշվի կիրառելի օրենքով և տվյալ փոխադրման նկատմամբ կիրառվող CMR կամ այլ համապատասխան միջազգային կանոններով։</div>
+      <div class="simple"><b>Օրինակ.</b> եթե չապահովագրված բեռը արժե 100,000 եվրո և վնասվում է, հարցն այն է՝ Smart Shippings-ը ավտոմատ պարտավո՞ր է վճարել 100,000 եվրոն, թե՞ նախ պետք է որոշվի՝ կա՞ մեր պատասխանատվությունը և ինչ սահմանաչափ է կիրառվում օրենքով/CMR-ով։</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q6" value="Այո">Այո</label>
-        <label class="option"><input type="radio" name="q6" value="Ոչ">Ոչ</label>
+        <label class="option"><input type="radio" name="q6" value="A — Պահել մեր դիրքը՝ պատասխանատվությունը միայն կիրառելի օրենքի/CMR/այլ կոնվենցիայի սահմաններում">A — Պահել մեր դիրքը՝ պատասխանատվությունը միայն կիրառելի օրենքի/CMR/այլ կոնվենցիայի սահմաններում</label>
+        <label class="option"><input type="radio" name="q6" value="B — Ընդունելի է պայմանագրով ամբողջ բեռի արժեքով պատասխանատվություն ստանձնել">B — Ընդունելի է պայմանագրով ամբողջ բեռի արժեքով պատասխանատվություն ստանձնել</label>
       </div>
       <textarea name="q6_comment" placeholder="Մեկնաբանություն՝ ցանկության դեպքում"></textarea>
+      <div class="notice">Եթե 5-րդ հարցում ընտրել եք պարտադիր ապահովագրություն, այս հարցը կարող եք բաց թողնել կամ պատասխանել որպես պահուստային կանոն բացառիկ դեպքերի համար։</div>
     </section>
 
     <section class="card" data-q="q7">
-      <div class="qtitle"><span class="qnum">7</span>Ապահովագրական հատուցումից հետո լրացուցիչ պահանջ</div>
-      <div class="desc">Պահե՞նք սկզբունքը, որ նույն վնասի համար կրկնակի հատուցում չի կարող լինել. ամբողջական ապահովագրական հատուցման դեպքում նույն վնասը երկրորդ անգամ չի պահանջվում Smart Shippings-ից, իսկ մասնակի հատուցման դեպքում քննարկվում է միայն չծածկված մասը՝ պատասխանատվության սահմանների պահպանմամբ։</div>
+      <div class="title"><span class="num">7</span><span>Եթե ապահովագրական ընկերությունն արդեն վճարել է վնասը</span></div>
+      <div class="context">Մեր մոտեցումն այն է, որ նույն վնասի համար կրկնակի հատուցում չլինի։ Եթե ապահովագրական ընկերությունը ամբողջությամբ վճարել է Digitain-ի վնասը, Digitain-ը նույն վնասը երկրորդ անգամ չպետք է պահանջի Smart Shippings-ից։ Եթե վճարվել է միայն մի մասը, կարող է քննարկվել միայն չծածկված մասը՝ եթե դրա համար կան պատասխանատվության հիմքեր։</div>
+      <div class="simple"><b>Պարզ ասած.</b> 100,000 վնասից ապահովագրողը վճարել է 100,000 → նույն 100,000-ը մեզանից երկրորդ անգամ չի պահանջվում։ Եթե վճարել է 70,000 → քննարկման առարկա կարող է լինել միայն մնացած 30,000-ը։</div>
       <div class="options">
-        <label class="option"><input type="radio" name="q7" value="Այո">Այո</label>
-        <label class="option"><input type="radio" name="q7" value="Ոչ">Ոչ</label>
+        <label class="option"><input type="radio" name="q7" value="A — Այո, պահել այս սկզբունքը">A — Այո, պահել այս սկզբունքը</label>
+        <label class="option"><input type="radio" name="q7" value="B — Ոչ, ընդունելի է նաև ապահովագրական հատուցումից հետո նույն վնասի մասով լրացուցիչ պահանջի հնարավորություն">B — Ոչ, ընդունելի է նաև լրացուցիչ պահանջի հնարավորություն</label>
       </div>
       <textarea name="q7_comment" placeholder="Մեկնաբանություն՝ ցանկության դեպքում"></textarea>
     </section>
 
-    <div id="preview" class="preview"></div>
+    <div class="preview" id="preview"></div>
 
-    <div class="footer">
-      <button type="button" class="primary" onclick="showSummary()">Տեսնել պատասխանների ամփոփումը</button>
-      <button type="button" class="secondary" onclick="copySummary()">Պատճենել ամփոփումը</button>
+    <div class="actions">
+      <button type="button" class="primary" onclick="showSummary()">Տեսնել ամփոփումը</button>
+      <button type="button" class="secondary" onclick="copySummary()">Պատճենել պատասխանները</button>
       <button type="button" class="success" onclick="sendWhatsApp()">Ուղարկել WhatsApp-ով</button>
       <button type="button" class="secondary" onclick="window.print()">Տպել / Save as PDF</button>
-      <span id="status" class="status"></span>
+      <span class="status" id="status"></span>
     </div>
-
   </form>
 </div>
 
 <script>
 const titles = {
-  q1: "Փոխարժեքի փոփոխություն",
-  q2: "Վեճի դեպքում վճարման պահում",
-  q3: "Վճարման ժամկետ",
-  q4: "Տույժեր",
-  q5: "Բեռի պարտադիր ապահովագրություն",
-  q6: "Չապահովագրված բեռի պատասխանատվություն",
-  q7: "Ապահովագրական հատուցումից հետո լրացուցիչ պահանջ"
+  q1:"Փոխարժեքի փոփոխություն",
+  q2:"Վեճի դեպքում ծառայության վճարում",
+  q3:"Վճարման ժամկետի սկիզբ",
+  q4:"Տույժերի չափը և կիրառումը",
+  q5:"Բեռի պարտադիր ապահովագրություն",
+  q6:"Չապահովագրված բեռի պատասխանատվություն",
+  q7:"Ապահովագրական հատուցումից հետո լրացուցիչ պահանջ"
 };
 
+function q6Relevant(){
+  const v = document.querySelector('input[name="q5"]:checked')?.value || "";
+  return v.startsWith("A") || v.startsWith("D") || !v;
+}
+
+function updateConditional(){
+  const card = document.getElementById("q6card");
+  card.style.display = q6Relevant() ? "block" : "block";
+}
+
 function saveState(){
-  const data = {};
+  const data={};
   Object.keys(titles).forEach(q=>{
-    const checked = document.querySelector(`input[name="${q}"]:checked`);
-    data[q] = checked ? checked.value : "";
-    const c = document.querySelector(`[name="${q}_comment"]`);
-    data[q+"_comment"] = c ? c.value : "";
+    data[q]=document.querySelector(`input[name="${q}"]:checked`)?.value||"";
+    data[q+"_comment"]=document.querySelector(`[name="${q}_comment"]`)?.value||"";
   });
-  localStorage.setItem("digitain_sona_quiz_v2", JSON.stringify(data));
-  updateProgress();
+  localStorage.setItem("digitain_sona_quiz_v3",JSON.stringify(data));
+  updateProgress(); updateConditional();
 }
 
 function loadState(){
   try{
-    const data = JSON.parse(localStorage.getItem("digitain_sona_quiz_v2") || "{}");
+    const data=JSON.parse(localStorage.getItem("digitain_sona_quiz_v3")||"{}");
     Object.keys(titles).forEach(q=>{
       if(data[q]){
-        const el = [...document.querySelectorAll(`input[name="${q}"]`)].find(x=>x.value===data[q]);
-        if(el) el.checked = true;
+        const el=[...document.querySelectorAll(`input[name="${q}"]`)].find(x=>x.value===data[q]);
+        if(el) el.checked=true;
       }
-      const c = document.querySelector(`[name="${q}_comment"]`);
-      if(c && data[q+"_comment"]) c.value = data[q+"_comment"];
+      const ta=document.querySelector(`[name="${q}_comment"]`);
+      if(ta && data[q+"_comment"]) ta.value=data[q+"_comment"];
     });
   }catch(e){}
-  updateProgress();
+  updateProgress(); updateConditional();
 }
 
 function updateProgress(){
-  let answered = 0;
-  Object.keys(titles).forEach(q=>{
-    if(document.querySelector(`input[name="${q}"]:checked`)) answered++;
-  });
-  const pct = Math.round(answered / 7 * 100);
-  document.getElementById("progress").style.width = pct + "%";
-  document.getElementById("progressText").textContent = `Պատասխանված է ${answered} / 7 հարց`;
+  let answered=0;
+  Object.keys(titles).forEach(q=>{ if(document.querySelector(`input[name="${q}"]:checked`)) answered++; });
+  document.getElementById("progress").style.width=Math.round(answered/7*100)+"%";
+  document.getElementById("progressText").textContent=`Պատասխանված է ${answered} / 7 հարց`;
 }
 
 function buildSummary(){
-  let out = "Digitain պայմանագիր — Սոնայի պատասխաններ\n\n";
+  let out="Digitain պայմանագիր — Սոնայի պատասխաններ\n\n";
   Object.keys(titles).forEach((q,i)=>{
-    const checked = document.querySelector(`input[name="${q}"]:checked`);
-    const comment = document.querySelector(`[name="${q}_comment"]`).value.trim();
-    out += `${i+1}. ${titles[q]}\n`;
-    out += `Պատասխան՝ ${checked ? checked.value : "Չի ընտրվել"}\n`;
-    if(comment) out += `Մեկնաբանություն՝ ${comment}\n`;
+    const ans=document.querySelector(`input[name="${q}"]:checked`)?.value||"Չի ընտրվել";
+    const c=document.querySelector(`[name="${q}_comment"]`)?.value.trim()||"";
+    out += `${i+1}. ${titles[q]}\nՊատասխան՝ ${ans}\n`;
+    if(c) out += `Մեկնաբանություն՝ ${c}\n`;
     out += "\n";
   });
   return out.trim();
 }
 
 function showSummary(){
-  const p = document.getElementById("preview");
-  p.textContent = buildSummary();
-  p.style.display = "block";
-  p.scrollIntoView({behavior:"smooth", block:"center"});
+  const p=document.getElementById("preview");
+  p.textContent=buildSummary(); p.style.display="block";
+  p.scrollIntoView({behavior:"smooth",block:"center"});
 }
 
 async function copySummary(){
-  const txt = buildSummary();
+  const txt=buildSummary();
   try{
-    await navigator.clipboard.writeText(txt);
-    flash("Պատասխանները պատճենված են");
+    await navigator.clipboard.writeText(txt); flash("Պատասխանները պատճենված են");
   }catch(e){
-    const ta = document.createElement("textarea");
-    ta.value = txt; document.body.appendChild(ta); ta.select();
-    document.execCommand("copy"); ta.remove();
-    flash("Պատասխանները պատճենված են");
+    const ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);
+    ta.select();document.execCommand("copy");ta.remove();flash("Պատասխանները պատճենված են");
   }
 }
 
 function sendWhatsApp(){
-  const txt = encodeURIComponent(buildSummary());
-  window.open("https://wa.me/?text=" + txt, "_blank");
+  window.open("https://wa.me/?text="+encodeURIComponent(buildSummary()),"_blank");
 }
 
 function flash(msg){
-  const s = document.getElementById("status");
-  s.textContent = msg;
-  setTimeout(()=>s.textContent="", 2500);
+  const s=document.getElementById("status");s.textContent=msg;
+  setTimeout(()=>s.textContent="",2500);
 }
 
-document.querySelectorAll("input, textarea").forEach(el=>{
-  el.addEventListener("change", saveState);
-  el.addEventListener("input", saveState);
+document.querySelectorAll("input,textarea").forEach(el=>{
+  el.addEventListener("change",saveState);el.addEventListener("input",saveState);
 });
 loadState();
 </script>
