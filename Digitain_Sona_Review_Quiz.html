@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Digitain պայմանագիր — Սոնայի հարցաշար</title>
+<style>
+  :root{
+    --bg:#f6f7fb;
+    --card:#ffffff;
+    --text:#1d2433;
+    --muted:#6b7280;
+    --line:#e5e7eb;
+    --accent:#2f5bea;
+    --accent-soft:#eef3ff;
+    --ok:#15803d;
+    --warn:#b45309;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: Arial, "Noto Sans Armenian", sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.55;
+  }
+  .wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:28px 18px 60px;
+  }
+  .hero{
+    background:linear-gradient(135deg,#172554,#2f5bea);
+    color:#fff;
+    border-radius:20px;
+    padding:28px;
+    box-shadow:0 12px 34px rgba(37,55,110,.18);
+  }
+  .hero h1{
+    margin:0 0 10px;
+    font-size:28px;
+    line-height:1.25;
+  }
+  .hero p{margin:0;opacity:.92}
+  .progress-wrap{
+    margin-top:18px;
+    background:rgba(255,255,255,.22);
+    height:8px;
+    border-radius:999px;
+    overflow:hidden;
+  }
+  .progress{
+    width:0%;
+    height:100%;
+    background:#fff;
+    transition:width .2s ease;
+  }
+  .progress-text{
+    margin-top:8px;
+    font-size:13px;
+    opacity:.9;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:22px;
+    margin-top:18px;
+    box-shadow:0 8px 26px rgba(30,41,59,.05);
+  }
+  .qnum{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:30px;height:30px;
+    border-radius:50%;
+    background:var(--accent-soft);
+    color:var(--accent);
+    font-weight:700;
+    margin-right:8px;
+  }
+  .qtitle{
+    font-weight:700;
+    font-size:18px;
+    margin-bottom:8px;
+  }
+  .desc{
+    color:#374151;
+    margin:8px 0 14px;
+  }
+  .options{
+    display:grid;
+    gap:10px;
+  }
+  label.option{
+    display:block;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:12px 14px;
+    cursor:pointer;
+    transition:.15s;
+    background:#fff;
+  }
+  label.option:hover{border-color:#b9c5ff;background:#fafbff}
+  label.option input{margin-right:8px}
+  label.option:has(input:checked){
+    border-color:var(--accent);
+    background:var(--accent-soft);
+  }
+  textarea{
+    width:100%;
+    min-height:76px;
+    margin-top:12px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:12px;
+    resize:vertical;
+    font:inherit;
+  }
+  .footer{
+    position:sticky;
+    bottom:10px;
+    margin-top:22px;
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(8px);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:12px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    box-shadow:0 10px 28px rgba(15,23,42,.12);
+  }
+  button{
+    border:none;
+    border-radius:10px;
+    padding:11px 15px;
+    font-weight:700;
+    cursor:pointer;
+    font-size:14px;
+  }
+  .primary{background:var(--accent);color:#fff}
+  .secondary{background:#eef2f7;color:#1f2937}
+  .success{background:#16a34a;color:#fff}
+  .preview{
+    white-space:pre-wrap;
+    background:#0f172a;
+    color:#e5e7eb;
+    border-radius:14px;
+    padding:16px;
+    margin-top:14px;
+    display:none;
+    font-size:14px;
+  }
+  .note{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:8px;
+  }
+  .status{
+    font-size:13px;
+    color:var(--ok);
+    margin-left:auto;
+    align-self:center;
+  }
+  @media (max-width:640px){
+    .hero h1{font-size:23px}
+    .card{padding:17px}
+    .footer{position:static}
+    button{width:100%}
+    .status{width:100%;margin-left:0}
+  }
+  @media print{
+    .footer,.progress-wrap,.progress-text{display:none!important}
+    body{background:#fff}
+    .hero{box-shadow:none}
+    .card{break-inside:avoid;box-shadow:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="hero">
+    <h1>Digitain պայմանագիր — որոշումների հարցաշար</h1>
+    <p>Սոնա ջան, Digitain-ից պայմանագիրը վերադարձել է նոր դիտարկումներով։ Ստորև միայն այն հարցերն են, որոնց վերաբերյալ մեզ անհրաժեշտ է Ձեր բիզնես դիրքորոշումը։ Իրավական ձևակերպումները մենք կկազմենք պատասխանների հիման վրա։</p>
+    <div class="progress-wrap"><div id="progress" class="progress"></div></div>
+    <div id="progressText" class="progress-text">Պատասխանված է 0 / 7 հարց</div>
+  </section>
+
+  <form id="quiz">
+
+    <section class="card" data-q="q1">
+      <div class="qtitle"><span class="qnum">1</span>Փոխարժեքի փոփոխություն</div>
+      <div class="desc">Մենք առաջարկել էինք 5% և ավելի արժեզրկման դեպքում վերահաշվարկել արտարժութային ծախսի մասը։ Digitain-ն առաջարկում է փոխարժեքային ռիսկը բաժանել կողմերի միջև 50/50։</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q1" value="A — Պահել մեր տարբերակը">A — Պահել մեր տարբերակը</label>
+        <label class="option"><input type="radio" name="q1" value="B — Ընդունել 50/50 մեխանիզմը">B — Ընդունել 50/50 մեխանիզմը</label>
+        <label class="option"><input type="radio" name="q1" value="C — Պատրաստ ենք այլ տոկոսի շուրջ բանակցել">C — Պատրաստ ենք այլ տոկոսի շուրջ բանակցել</label>
+      </div>
+      <textarea name="q1_comment" placeholder="Մեկնաբանություն՝ ցանկության դեպքում"></textarea>
+    </section>
+
+    <section class="card" data-q="q2">
+      <div class="qtitle"><span class="qnum">2</span>Վեճի դեպքում վճարման պահում</div>
+      <div class="desc">Ընդունելի՞ է, որ միայն կոնկրետ վիճարկվող գումարը ժամանակավորապես պահվի, իսկ չվիճարկվող մասը պարտադիր վճարվի պայմանագրային ժամկետում։</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q2" value="Այո">Այո</label>
+        <label class="option"><input type="radio" name="q2" value="Ոչ">Ոչ</label>
+      </div>
+      <textarea name="q2_comment" placeholder="Մեկնաբանություն՝ ցանկության դեպքում"></textarea>
+    </section>
+
+    <section class="card" data-q="q3">
+      <div class="qtitle"><span class="qnum">3</span>Վճարման ժամկետ</div>
+      <div class="desc">Digitain-ն առաջարկում է 10 աշխատանքային օր՝ հաշվարկային փաստաթղթի երկկողմանի հաստատումից հետո։ Մեր տարբերակով ժամկետը հաշվվում է բեռը Ստացողին հանձնելու պահից և կախված չէ հետագա հաստատումից։</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q3" value="A — Միայն մեր 7-օրյա տարբերակը">A — Միայն մեր 7-օրյա տարբերակը</label>
+        <label class="option"><input type="radio" name="q3" value="B — 10 օրը ընդունելի է, բայց ոչ երկկողմանի հաստատումից">B — 10 օրը ընդունելի է, բայց ժամկետը չպետք է կախված լինի Digitain-ի հաստատումից</label>
+        <label class="option"><input type="radio" name="q3" value="C — Ընդունելի է Digitain-ի առաջարկած տարբերակը">C — Ընդունելի է նաև Digitain-ի առաջարկած երկկողմանի հաստատման մեխանիզմը</label>
+      </div>
+      <textarea name="q3_comment" placeholder="Մեկնաբանություն՝ ցանկության դեպքում"></textarea>
+    </section>
+
+    <section class="card" data-q="q4">
+      <div class="qtitle"><span class="qnum">4</span>Տույժեր</div>
+      <div class="desc">Digitain-ը ցանկանում է ընդհանուր 0.13% օրական տույժ։ Մենք առաջարկել էինք առանձին 0.1% մեխանիզմներ՝ ուշ վճարման և պարտադիր առաքման ժամկետի խախտման համար։</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q4" value="0.1% — Պահել մեր տարբերակը">0.1% — Պահել մեր տարբերակը</label>
+        <label class="option"><input type="radio" name="q4" value="0.13% — Ընդունելի է">0.13% — Ընդունելի է</label>
+        <label class="option"><input type="radio" name="q4" value="Այլ տարբերակ">Այլ տարբերակ</label>
+      </div>
+      <textarea name="q4_comment" placeholder="Եթե ընտրել եք «այլ տարբերակ», նշեք առաջարկը"></textarea>
+    </section>
+
+    <section class="card" data-q="q5">
+      <div class="qtitle"><span class="qnum">5</span>Բեռի պարտադիր ապահովագրություն</div>
+      <div class="desc">Նախկինում նշել էիք, որ յուրաքանչյուր փոխադրման համար ապահովագրությունը պարտադիր չէ։ Digitain-ի նոր դիրքն այն է, որ պայմանագրի շրջանակում յուրաքանչյուր բեռ պետք է պարտադիր ապահովագրվի։</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q5" value="A — Չենք ընդունում պարտադիր ապահովագրություն">A — Չենք ընդունում պարտադիր ապահովագրություն</label>
+        <label class="option"><input type="radio" name="q5" value="B — Ընդունելի է, եթե արժեքը առանձին կրում է Պատվիրատուն">B — Ընդունելի է, եթե ապահովագրության արժեքը առանձին ավելացվում է գնին / կրում է Պատվիրատուն</label>
+        <label class="option"><input type="radio" name="q5" value="C — Ընդունելի է մեր հաշվին">C — Պատրաստ ենք բոլոր փոխադրումները ապահովագրել մեր հաշվին</label>
+      </div>
+      <textarea name="q5_comment" placeholder="Մեկնաբանություն՝ ցանկության դեպքում"></textarea>
+    </section>
+
+    <section class="card" data-q="q6">
+      <div class="qtitle"><span class="qnum">6</span>Չապահովագրված բեռի պատասխանատվություն</div>
+      <div class="desc">Հաստատե՞նք մեր դիրքը, որ Smart Shippings-ը չի ստանձնում ավտոմատ ամբողջ բեռի արժեքով անսահմանափակ պատասխանատվություն, և պատասխանատվությունը պետք է որոշվի կիրառելի CMR/այլ կոնվենցիայի ու օրենքի սահմաններում։</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q6" value="Այո">Այո</label>
+        <label class="option"><input type="radio" name="q6" value="Ոչ">Ոչ</label>
+      </div>
+      <textarea name="q6_comment" placeholder="Մեկնաբանություն՝ ցանկության դեպքում"></textarea>
+    </section>
+
+    <section class="card" data-q="q7">
+      <div class="qtitle"><span class="qnum">7</span>Ապահովագրական հատուցումից հետո լրացուցիչ պահանջ</div>
+      <div class="desc">Պահե՞նք սկզբունքը, որ նույն վնասի համար կրկնակի հատուցում չի կարող լինել. ամբողջական ապահովագրական հատուցման դեպքում նույն վնասը երկրորդ անգամ չի պահանջվում Smart Shippings-ից, իսկ մասնակի հատուցման դեպքում քննարկվում է միայն չծածկված մասը՝ պատասխանատվության սահմանների պահպանմամբ։</div>
+      <div class="options">
+        <label class="option"><input type="radio" name="q7" value="Այո">Այո</label>
+        <label class="option"><input type="radio" name="q7" value="Ոչ">Ոչ</label>
+      </div>
+      <textarea name="q7_comment" placeholder="Մեկնաբանություն՝ ցանկության դեպքում"></textarea>
+    </section>
+
+    <div id="preview" class="preview"></div>
+
+    <div class="footer">
+      <button type="button" class="primary" onclick="showSummary()">Տեսնել պատասխանների ամփոփումը</button>
+      <button type="button" class="secondary" onclick="copySummary()">Պատճենել ամփոփումը</button>
+      <button type="button" class="success" onclick="sendWhatsApp()">Ուղարկել WhatsApp-ով</button>
+      <button type="button" class="secondary" onclick="window.print()">Տպել / Save as PDF</button>
+      <span id="status" class="status"></span>
+    </div>
+
+  </form>
+</div>
+
+<script>
+const titles = {
+  q1: "Փոխարժեքի փոփոխություն",
+  q2: "Վեճի դեպքում վճարման պահում",
+  q3: "Վճարման ժամկետ",
+  q4: "Տույժեր",
+  q5: "Բեռի պարտադիր ապահովագրություն",
+  q6: "Չապահովագրված բեռի պատասխանատվություն",
+  q7: "Ապահովագրական հատուցումից հետո լրացուցիչ պահանջ"
+};
+
+function saveState(){
+  const data = {};
+  Object.keys(titles).forEach(q=>{
+    const checked = document.querySelector(`input[name="${q}"]:checked`);
+    data[q] = checked ? checked.value : "";
+    const c = document.querySelector(`[name="${q}_comment"]`);
+    data[q+"_comment"] = c ? c.value : "";
+  });
+  localStorage.setItem("digitain_sona_quiz_v2", JSON.stringify(data));
+  updateProgress();
+}
+
+function loadState(){
+  try{
+    const data = JSON.parse(localStorage.getItem("digitain_sona_quiz_v2") || "{}");
+    Object.keys(titles).forEach(q=>{
+      if(data[q]){
+        const el = [...document.querySelectorAll(`input[name="${q}"]`)].find(x=>x.value===data[q]);
+        if(el) el.checked = true;
+      }
+      const c = document.querySelector(`[name="${q}_comment"]`);
+      if(c && data[q+"_comment"]) c.value = data[q+"_comment"];
+    });
+  }catch(e){}
+  updateProgress();
+}
+
+function updateProgress(){
+  let answered = 0;
+  Object.keys(titles).forEach(q=>{
+    if(document.querySelector(`input[name="${q}"]:checked`)) answered++;
+  });
+  const pct = Math.round(answered / 7 * 100);
+  document.getElementById("progress").style.width = pct + "%";
+  document.getElementById("progressText").textContent = `Պատասխանված է ${answered} / 7 հարց`;
+}
+
+function buildSummary(){
+  let out = "Digitain պայմանագիր — Սոնայի պատասխաններ\n\n";
+  Object.keys(titles).forEach((q,i)=>{
+    const checked = document.querySelector(`input[name="${q}"]:checked`);
+    const comment = document.querySelector(`[name="${q}_comment"]`).value.trim();
+    out += `${i+1}. ${titles[q]}\n`;
+    out += `Պատասխան՝ ${checked ? checked.value : "Չի ընտրվել"}\n`;
+    if(comment) out += `Մեկնաբանություն՝ ${comment}\n`;
+    out += "\n";
+  });
+  return out.trim();
+}
+
+function showSummary(){
+  const p = document.getElementById("preview");
+  p.textContent = buildSummary();
+  p.style.display = "block";
+  p.scrollIntoView({behavior:"smooth", block:"center"});
+}
+
+async function copySummary(){
+  const txt = buildSummary();
+  try{
+    await navigator.clipboard.writeText(txt);
+    flash("Պատասխանները պատճենված են");
+  }catch(e){
+    const ta = document.createElement("textarea");
+    ta.value = txt; document.body.appendChild(ta); ta.select();
+    document.execCommand("copy"); ta.remove();
+    flash("Պատասխանները պատճենված են");
+  }
+}
+
+function sendWhatsApp(){
+  const txt = encodeURIComponent(buildSummary());
+  window.open("https://wa.me/?text=" + txt, "_blank");
+}
+
+function flash(msg){
+  const s = document.getElementById("status");
+  s.textContent = msg;
+  setTimeout(()=>s.textContent="", 2500);
+}
+
+document.querySelectorAll("input, textarea").forEach(el=>{
+  el.addEventListener("change", saveState);
+  el.addEventListener("input", saveState);
+});
+loadState();
+</script>
+</body>
+</html>
